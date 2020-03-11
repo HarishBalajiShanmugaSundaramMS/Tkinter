@@ -1,0 +1,21 @@
+from tkinter import *
+root = Tk()
+root.title("Addition")
+root.config(bg='Lightgreen')
+textlab1=Label(root, text="Enter First Number:", bg='Lightgreen')
+textlab1.pack()
+e1 = Entry(root,width=5)
+e1.pack()
+textlab2=Label(root, text="Enter Second Number:", bg='Lightgreen')
+textlab2.pack()
+e2 = Entry(root,width=5)
+e2.pack()
+l = Label(root, bd=5,bg='Lightgreen')
+def callback():
+    total = sum(int(e.get()) for e in (e1, e2))
+    l.config(text="Answer = %s" % total)
+    l.pack()
+b = Button(root, text="Add", command=callback)
+for widget in (e1, e2, l, b):
+    widget.pack()
+b.mainloop()
